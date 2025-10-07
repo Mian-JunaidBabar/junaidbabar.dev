@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white dark:bg-dark-bg transition-colors duration-300">
       <Navbar />
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="w-full">
         <Hero />
         <div className="space-y-24">
           <About />

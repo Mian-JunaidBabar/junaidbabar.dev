@@ -5,8 +5,8 @@ import resumeData from "@/data/resume.json";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 dark:bg-black text-white py-12">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-gray-900 dark:bg-black text-white py-12 w-full">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Quote */}
           <div className="text-center md:text-left">

@@ -56,8 +56,8 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-gray-50 dark:bg-dark-bg">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-24 bg-gray-50 dark:bg-dark-bg w-full">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

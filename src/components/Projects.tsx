@@ -6,8 +6,8 @@ import resumeData from "@/data/resume.json";
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 bg-white dark:bg-gray-900">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-24 bg-white dark:bg-gray-900 w-full">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
