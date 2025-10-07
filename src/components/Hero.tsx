@@ -2,7 +2,9 @@
 
 import { motion } from "framer-motion";
 import { MapPin, ArrowDown } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
+import Typewriter from "./Typewriter";
 
 export default function Hero() {
   const scrollToSection = (id: string) => {
@@ -25,13 +27,13 @@ export default function Hero() {
 
       <div className="w-full">
         <div className="max-w-screen-xl mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left side - Text content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-6 text-center md:text-left"
+              className="space-y-6 text-center md:text-left min-w-0"
             >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -47,11 +49,18 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight"
+                className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white leading-tight flex flex-wrap items-center gap-2"
               >
-                Full Stack Developer |{" "}
-                <span className="text-primary">AI/ML Enthusiast</span> | CS
-                Undergrad
+                {/* allow wrapping as needed; reduce sizes to avoid overlap */}
+                <span className="text-primary whitespace-normal">
+                  <Typewriter
+                    phrases={[
+                      "Building Smarter Web Systems",
+                      "Merging Code with Intelligence",
+                      "Engineering Ideas into Reality",
+                    ]}
+                  />
+                </span>
               </motion.h1>
 
               <motion.p
@@ -69,12 +78,12 @@ export default function Hero() {
                 transition={{ delay: 0.5, duration: 0.6 }}
                 className="flex flex-wrap gap-4 pt-4 justify-center md:justify-start"
               >
-                <button
-                  onClick={() => scrollToSection("#projects")}
+                <Link
+                  href="/projects"
                   className="px-8 py-3 bg-primary hover:bg-accent text-white rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
                 >
                   View Projects
-                </button>
+                </Link>
                 <button
                   onClick={() => scrollToSection("#contact")}
                   className="px-8 py-3 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white border-2 border-gray-200 dark:border-gray-700 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
@@ -89,16 +98,18 @@ export default function Hero() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="flex justify-center"
+              className="flex justify-center lg:justify-end"
             >
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-full blur-2xl opacity-30 animate-pulse"></div>
-                <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
+                <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl flex-shrink-0">
                   <Image
-                    src="https://picsum.photos/seed/junaid/320/320"
+                    src="/profile.jpg"
                     alt="Junaid Babar"
                     fill
-                    className="object-cover"
+                    priority
+                    className="object-cover w-full h-full"
+                    sizes="(min-width: 640px) 20rem, 16rem"
                   />
                 </div>
               </div>
