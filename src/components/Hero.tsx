@@ -45,23 +45,35 @@ export default function Hero() {
                 Lahore, Pakistan
               </motion.div>
 
-              <motion.h1
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
-                className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white leading-tight flex flex-wrap items-center gap-2"
+                className="space-y-2"
               >
-                {/* allow wrapping as needed; reduce sizes to avoid overlap */}
-                <span className="text-primary whitespace-normal">
-                  <Typewriter
-                    phrases={[
-                      "Building Smarter Web Systems",
-                      "Merging Code with Intelligence",
-                      "Engineering Ideas into Reality",
-                    ]}
-                  />
-                </span>
-              </motion.h1>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white">
+                  Hi, I’m <span className="text-primary">Junaid Babar</span>
+                </h1>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                className="space-y-2"
+              >
+                <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white leading-tight flex flex-wrap items-center gap-2">
+                  <span className="text-primary whitespace-normal">
+                    <Typewriter
+                      phrases={[
+                        "Building Smarter Web Systems",
+                        "Merging Code with Intelligence",
+                        "Engineering Ideas into Reality",
+                      ]}
+                    />
+                  </span>
+                </h2>
+              </motion.div>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
