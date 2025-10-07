@@ -218,6 +218,29 @@ export default function RootLayout({ children }) {
 
 ## 🐛 Common Issues
 
+### Next.js Image Configuration Error
+
+If you see an error about "hostname not configured under images":
+
+1. Update `next.config.ts` to include external image domains:
+
+   ```typescript
+   const nextConfig: NextConfig = {
+     images: {
+       remotePatterns: [
+         {
+           protocol: "https",
+           hostname: "picsum.photos", // or your image host
+         },
+       ],
+     },
+   };
+   ```
+
+2. Restart the development server: `npm run dev`
+
+This allows Next.js to load images from external sources.
+
 ### Dark mode not working
 
 - Clear browser cache and local storage

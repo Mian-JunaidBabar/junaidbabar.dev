@@ -1,6 +1,8 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* CSS Variables for theming */
+/* CSS Variables for theming (used by custom styles). Tailwind's preflight runs above. */
 :root {
   --background: #ffffff;
   --foreground: #111827;
@@ -8,34 +10,30 @@
   --accent: #0891b2;
 }
 
+/* When next-themes sets the 'dark' class on <html>, these variables switch */
 .dark {
   --background: #0b0f17;
   --foreground: #e5e7eb;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+/* Keep body using CSS variables but allow Tailwind classes to override when needed */
 body {
   background: var(--background);
   color: var(--foreground);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar (optional) */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -47,7 +45,7 @@ body {
   background: var(--accent);
 }
 
-/* Smooth animations */
+/* Smooth animations (can be referenced in components) */
 @keyframes fadeIn {
   from {
     opacity: 0;

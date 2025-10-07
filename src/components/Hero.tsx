@@ -15,7 +15,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-sky-50 via-white to-cyan-50 dark:from-dark-bg dark:via-gray-900 dark:to-gray-800"
+      className="flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-sky-50 via-white to-cyan-50 dark:from-dark-bg dark:via-gray-900 dark:to-gray-800 py-20 md:py-32"
     >
       {/* Animated background particles */}
       <div className="absolute inset-0 overflow-hidden">
@@ -23,14 +23,14 @@ export default function Hero() {
         <div className="absolute w-96 h-96 bg-accent/10 rounded-full blur-3xl -bottom-20 -right-20 animate-pulse delay-1000"></div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left side - Text content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-6"
+            className="space-y-6 text-center md:text-left"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -66,7 +66,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="flex flex-wrap gap-4 pt-4"
+              className="flex flex-wrap gap-4 pt-4 justify-center md:justify-start"
             >
               <button
                 onClick={() => scrollToSection("#projects")}
@@ -93,10 +93,12 @@ export default function Hero() {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-full blur-2xl opacity-30 animate-pulse"></div>
               <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
-                <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                  {/* Placeholder - replace with actual image */}
-                  <div className="text-6xl font-bold text-primary">JB</div>
-                </div>
+                <Image
+                  src="https://picsum.photos/seed/junaid/320/320"
+                  alt="Junaid Babar"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
           </motion.div>
