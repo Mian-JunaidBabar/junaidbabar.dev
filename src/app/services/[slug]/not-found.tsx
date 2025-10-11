@@ -11,7 +11,7 @@ export default function NotFound() {
           Service Not Found
         </h2>
         <p className="text-gray-600 dark:text-gray-400 mb-8">
-          The service you're looking for doesn't exist.
+          Unfortunately, we don't have the service you're looking for currently.
         </p>
         <Link
           href="/#services"
