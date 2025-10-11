@@ -79,7 +79,7 @@ export default function Navbar() {
               </svg>
             </a>
             <a
-              href="https://linkedin.com/in/junaidbabar"
+              href="https://linkedin.com/in/mian-junaidbabar"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-900 dark:text-gray-100 hover:text-primary dark:hover:text-primary transition-colors p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
