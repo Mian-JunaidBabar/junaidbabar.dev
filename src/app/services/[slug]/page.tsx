@@ -10,8 +10,13 @@ export function generateStaticParams() {
   }));
 }
 
-export default function ServicePage({ params }: { params: { slug: string } }) {
-  const service = getServiceBySlug(params.slug);
+export default async function ServicePage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = await params;
+  const service = getServiceBySlug(slug as string);
 
   if (!service) {
     notFound();
@@ -33,7 +38,9 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
     shortDesc: service.shortDesc,
     fullDesc: service.fullDesc,
     tags: service.tags,
-    skills: service.skills,
+    skillsDetailed: service.skillsDetailed,
+    roadmap: service.roadmap,
+    targetClients: service.targetClients,
     relatedProjects: service.relatedProjects,
   };
 
