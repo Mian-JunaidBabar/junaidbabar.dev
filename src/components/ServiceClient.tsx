@@ -257,7 +257,7 @@ export default function ServiceClient({ service, relatedProjects }: any) {
 
           <div className="flex justify-center gap-4">
             <Link
-              href="/#contact"
+              href="/contact"
               className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
             >
               Get in touch
