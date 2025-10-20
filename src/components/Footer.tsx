@@ -1,52 +1,62 @@
-"use client";
+import Link from "next/link";
+import { Mail, Github, Linkedin } from "lucide-react";
+import { about } from "@/data/about";
 
-import { Github, Linkedin, Heart } from "lucide-react";
-import resumeData from "@/data/resume.json";
+const socials = [
+  { label: "GitHub", href: "https://github.com/example", icon: Github },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/example",
+    icon: Linkedin,
+  },
+];
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="bg-gray-900 dark:bg-black text-white py-12 w-full">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Quote */}
-          <div className="text-center md:text-left">
-            <p className="text-lg font-medium text-gray-300 italic">
-              &quot;Building tomorrow&apos;s systems today.&quot;
-            </p>
+    <footer className="border-t border-slate-200 bg-white/70 backdrop-blur dark:border-slate-800 dark:bg-slate-950/60">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-12 sm:px-6 lg:flex-row lg:items-center lg:justify-between">
+        <div className="space-y-2">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">
+            {about.name}
+          </p>
+          <p className="max-w-md text-sm text-slate-600 dark:text-slate-300">
+            {about.bio}
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
+          <div className="flex items-center gap-3">
+            <Mail className="h-4 w-4 text-sky-500" />
+            <Link
+              href={`mailto:${about.contactEmail}`}
+              className="text-sm font-medium text-slate-700 transition hover:text-sky-500 dark:text-slate-200"
+            >
+              {about.contactEmail}
+            </Link>
           </div>
 
-          {/* Social Links */}
-          <div className="flex items-center space-x-6">
-            {resumeData.basics.profiles.map((profile) => (
-              <a
-                key={profile.network}
-                href={profile.url}
+          <div className="flex items-center gap-3">
+            {socials.map(({ label, href, icon: Icon }) => (
+              <Link
+                key={label}
+                href={href}
+                aria-label={label}
                 target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-primary transition-colors duration-300"
-                aria-label={profile.network}
+                rel="noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition hover:border-sky-500 hover:text-sky-500 dark:border-slate-700 dark:text-slate-300 dark:hover:border-sky-400 dark:hover:text-sky-300"
               >
-                {profile.network === "GitHub" ? (
-                  <Github className="w-6 h-6" />
-                ) : (
-                  <Linkedin className="w-6 h-6" />
-                )}
-              </a>
+                <Icon className="h-4 w-4" />
+              </Link>
             ))}
           </div>
         </div>
+      </div>
 
-        {/* Divider */}
-        <div className="my-8 border-t border-gray-800"></div>
-
-        {/* Copyright */}
-        <div className="text-center text-gray-400 text-sm">
-          <p className="flex items-center justify-center gap-2">
-            © {new Date().getFullYear()} Junaid Babar. Built with{" "}
-            <Heart className="w-4 h-4 text-red-500 fill-current" /> using
-            Next.js & Tailwind CSS
-          </p>
-        </div>
+      <div className="border-t border-slate-200/70 bg-white/70 py-6 text-center text-xs text-slate-500 dark:border-slate-800/70 dark:bg-slate-950/70 dark:text-slate-400">
+        © {year} {about.name}. Crafted with Next.js, Tailwind CSS, and Framer
+        Motion.
       </div>
     </footer>
   );

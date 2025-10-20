@@ -1,20 +1,20 @@
 import Link from "next/link";
 
-export default function NotFound() {
+export default function ProjectNotFound() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-24 text-center">
       <h1 className="text-3xl font-semibold text-slate-900 dark:text-slate-100">
-        Service not found
+        Project not found
       </h1>
       <p className="mt-4 text-sm text-slate-600 dark:text-slate-300">
-        The service you&apos;re looking for isn&apos;t available yet. Explore
-        the full offering to find the best fit for your project.
+        That project isn&apos;t available right now. Head back to the projects
+        page to explore more case studies.
       </p>
       <Link
-        href="/services"
+        href="/projects"
         className="mt-8 inline-flex rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-sky-500"
       >
-        Browse services
+        Browse projects
       </Link>
     </div>
   );

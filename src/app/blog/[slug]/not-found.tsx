@@ -1,20 +1,20 @@
 import Link from "next/link";
 
-export default function NotFound() {
+export default function BlogNotFound() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-24 text-center">
       <h1 className="text-3xl font-semibold text-slate-900 dark:text-slate-100">
-        Service not found
+        Post not found
       </h1>
       <p className="mt-4 text-sm text-slate-600 dark:text-slate-300">
-        The service you&apos;re looking for isn&apos;t available yet. Explore
-        the full offering to find the best fit for your project.
+        The article you&apos;re trying to read doesn&apos;t exist. Browse recent
+        stories from the journal instead.
       </p>
       <Link
-        href="/services"
+        href="/blog"
         className="mt-8 inline-flex rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-sky-500"
       >
-        Browse services
+        View all posts
       </Link>
     </div>
   );
