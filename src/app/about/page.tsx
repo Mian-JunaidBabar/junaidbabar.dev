@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { about } from "@/data/about";
-import { SectionHeader } from "@/components/SectionHeader";
+// SectionHeader no longer used here; kept markup inline for custom layout
 import { MotionWrapper } from "@/components/MotionWrapper";
-import { Linkedin, Github, Mail, ArrowRight, Download } from "lucide-react"; // Import Download icon
+import { Linkedin, Github, Mail, ArrowRight, Download } from "lucide-react";
 
 export default function AboutPage() {
   return (

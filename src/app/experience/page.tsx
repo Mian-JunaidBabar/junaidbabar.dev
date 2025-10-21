@@ -4,14 +4,19 @@ import { MotionWrapper } from "@/components/MotionWrapper";
 
 export default function ExperiencePage() {
   return (
-    <div className="mx-auto max-w-5xl space-y-12 px-4 py-16 sm:px-6">
-      <SectionHeader
-        eyebrow="Experience"
-        title="Building products with cross-functional teams"
-        description="A snapshot of recent roles focused on web platforms, AI integrations, and automation that unblocks teams."
-      />
+    <div className="mx-auto max-w-5xl space-y-24 px-4 py-24 sm:px-6">
+      {/* 1. The NEW Header: Personal and Narrative-Driven */}
+      <MotionWrapper>
+        <SectionHeader
+          align="center"
+          eyebrow="Professional Journey"
+          title="From Intern to Engineer: A Record of Growth and Impact"
+          description="This is a timeline of my professional growth, showcasing how I've applied my skills in real-world environments to solve complex problems and deliver tangible results for businesses and organizations."
+        />
+      </MotionWrapper>
 
-      <div className="relative border-l border-slate-200 dark:border-slate-800">
+      {/* 2. The Timeline: This component is already perfect and requires no changes */}
+      <div className="relative mt-16 border-l border-slate-200 dark:border-slate-800">
         {experience.map((role, index) => (
           <MotionWrapper
             key={`${role.company}-${role.role}`}

@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/experience", label: "Experience" },
+  { href: "/education", label: "Education" },
   { href: "/projects", label: "Projects" },
   { href: "/services", label: "Services" },
   { href: "/blog", label: "Blog" },
@@ -78,6 +79,7 @@ export default function Navbar() {
               <Moon className="h-4 w-4" />
             )}
           </button>
+
           <button
             type="button"
             className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition hover:border-sky-500 hover:text-sky-500 dark:border-slate-700 dark:text-slate-300 dark:hover:border-sky-400 dark:hover:text-sky-300 lg:hidden"
