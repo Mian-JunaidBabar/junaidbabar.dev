@@ -108,7 +108,7 @@ export default function Home() {
             <MotionWrapper key={project.slug} delay={index * 0.05}>
               <Card
                 title={project.name}
-                description={project.description}
+                description={project.description || project.tagline}
                 tags={project.tech}
                 href={`/projects/${project.slug}`}
                 ctaLabel="View details"

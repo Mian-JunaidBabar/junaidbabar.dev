@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { projects } from "@/data/projects";
+import { projects, type Project } from "@/data/projects";
 import { SectionHeader } from "@/components/SectionHeader";
 import { MotionWrapper } from "@/components/MotionWrapper";
 
@@ -14,7 +14,7 @@ export default function ProjectsPage() {
       />
 
       <div className="grid gap-8 md:grid-cols-2">
-        {projects.map((project, index) => (
+        {projects.map((project: Project, index: number) => (
           <MotionWrapper
             key={project.slug}
             delay={index * 0.05}
@@ -47,7 +47,7 @@ export default function ProjectsPage() {
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
+                  {project.tech.map((tech: string) => (
                     <span
                       key={tech}
                       className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
