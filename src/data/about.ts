@@ -8,19 +8,31 @@ export interface About {
   focusAreas: { title: string; description: string }[];
   contactEmail: string;
   profileImage: string;
+  toolkit: string[];
+  socialLinks: { linkedin?: string; github?: string };
+  resumeUrl?: string;
 }
 
 export const about: About = {
   name: "Junaid Babar",
-  title: "Full Stack Developer Specializing in AI-Powered Web Applications",
+  title: "AI-Powered Web Application Specialist",
   location: "Lahore, Pakistan",
+  contactEmail: "junaidbabar121@gmail.com",
+  profileImage: "/profile.jpg",
+  resumeUrl: "/resume.pdf",
+
+  socialLinks: {
+    linkedin: "https://www.linkedin.com/in/mian-junaidbabar/",
+    github: "https://github.com/mian-junaidbabar",
+  },
+
   heroSummary:
     "I help innovative companies build intelligent web applications that automate tasks, analyze data, and create smarter user experiences.",
 
   homePageBio:
     "Beyond the code, I'm a product-focused engineer who bridges the gap between technical execution and business goals. I thrive on building tools that are not only powerful but also intuitive and enjoyable to use.",
 
-  fullBio: `From the moment I realized that a few lines of code could create something that thinks and reacts, I was hooked. For me, computer science isn't just about building applications; it's about solving puzzles, efficient solution that turns a complex business problem into a simple, intuitive tool.
+  fullBio: `From the moment I realized that a few lines of code could create something that thinks and reacts, I was hooked. For me, computer science isn't just about building applications; it's about solving puzzles, finding that elegant, efficient solution that turns a complex business problem into a simple, intuitive tool.
 
   My philosophy is built on a foundation of clean code and clear communication. I believe the best products emerge from a deep understanding of the user's needs, which is why I focus on bridging the gap between a powerful backend and a user-friendly frontend. I thrive on the process of experimenting, breaking things, and rebuilding them better, always with the end goal in sight: did this solve the problem it was made for?
 
@@ -49,8 +61,23 @@ export const about: About = {
         "I'm a developer who thinks like a product manager. I focus on the 'why' behind the 'what,' ensuring that every feature I build is not only technically sound but also solves a real user problem and aligns with your business goals.",
     },
   ],
-  contactEmail: "junaidbabar121@gmail.com",
-  profileImage: "/profile.jpg",
+
+  toolkit: [
+    "Python",
+    "PyTorch",
+    "TensorFlow",
+    "Next.js",
+    "React",
+    "Node.js",
+    "TypeScript",
+    "JavaScript",
+    "PostgreSQL",
+    "Firebase",
+    "Tailwind CSS",
+    "Git",
+    "Docker",
+    "AWS",
+  ],
 };
 
 export const homePageAboutSection = {
