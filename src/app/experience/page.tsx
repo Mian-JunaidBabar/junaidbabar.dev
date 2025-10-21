@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import { experience } from "@/data/experience";
 import { SectionHeader } from "@/components/SectionHeader";
 import { MotionWrapper } from "@/components/MotionWrapper";
+import { motion } from "framer-motion";
 
 export default function ExperiencePage() {
   return (
@@ -24,7 +27,13 @@ export default function ExperiencePage() {
             delay={index * 0.05}
             className="ml-6 pb-12 last:pb-0"
           >
-            <div className="absolute -left-2.5 mt-1 h-5 w-5 rounded-full border-2 border-white bg-sky-500 shadow-md shadow-sky-500/30 dark:border-slate-900" />
+            <motion.div
+              initial={{ scale: 0.6, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.45, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.6 }}
+              className="absolute -left-2.5 mt-1 h-5 w-5 rounded-full border-2 border-white bg-sky-500 shadow-md shadow-sky-500/30 dark:border-slate-900"
+            />
             <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/70">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-4">
