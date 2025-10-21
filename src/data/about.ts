@@ -9,19 +9,19 @@ export interface About {
   profileImage: string;
 }
 
-export const about: About = {
-  name: "John Doe",
-  title: "AI/ML Engineer & Web Developer",
+export const about = {
+  name: "Junaid Babar",
+  title: "Full Stack Developer & AI Systems Builder",
   location: "Lahore, Pakistan",
   summary:
-    "Passionate about building intelligent systems and scalable web solutions.",
-  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "I build intelligent and scalable systems that solve real problems — blending AI with web engineering to create tools that actually make life easier.",
+  bio: "I'm the kind of developer who doesn't just code features; I build systems that think. My work spans full-stack web development and AI integration — from designing smooth frontends with React and Next.js to engineering backends that process data intelligently. I believe technology should be fast, functional, and smart enough to adapt to users, not the other way around. Currently, I'm working on Harmoni — an AI-powered collaboration tool that unifies task management, meetings, and communication in one workspace.",
   focusAreas: [
-    "Web Development",
-    "AI Systems",
-    "Automation",
+    "AI-Driven Web Apps",
+    "Automation & Integrations",
     "Cloud Infrastructure",
+    "Product Design & UX Thinking",
   ],
-  contactEmail: "john@example.com",
+  contactEmail: "junaidbabar121@gmail.com",
   profileImage: "/profile.jpg",
 };

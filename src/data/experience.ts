@@ -7,28 +7,42 @@ export interface ExperienceItem {
   stack: string[];
 }
 
-export const experience: ExperienceItem[] = [
+export const experience = [
   {
-    company: "Applicon Soft",
-    role: "Associate Software Engineer",
-    duration: "2023 — Present",
+    company: "Deal.ai",
+    role: "Web Developer & Designer",
+    duration: "Mar 2024 – Mar 2025",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit.",
+      "Developed and designed AI-powered web solutions tailored for client workflows. Focused on merging strong UI/UX with scalable backend systems.",
     achievements: [
-      "Built scalable internal tools for automation.",
-      "Led integration of AI-based analytics modules.",
+      "Built AI-integrated web platforms using Next.js and Node.js.",
+      "Designed user interfaces with Tailwind and React best practices.",
+      "Collaborated with AI engineers to deliver intelligent business tools.",
     ],
-    stack: ["Next.js", "Node.js", "AWS"],
+    stack: ["Next.js", "React", "Tailwind", "Node.js", "Firebase"],
   },
   {
-    company: "Freelance",
-    role: "Full Stack Developer",
-    duration: "2021 — 2023",
-    description: "Worked with multiple clients on web and AI solutions.",
+    company: "TezHost",
+    role: "IT Intern",
+    duration: "May 2025 – Sep 2025",
+    description:
+      "Explored web development, cloud management, and brand marketing within a fast-moving IT company.",
     achievements: [
-      "Developed SaaS dashboards using Next.js.",
-      "Integrated APIs for automation and data analysis.",
+      "Worked across web, AWS cloud, and digital design modules.",
+      "Learned deployment pipelines and client-side hosting strategies.",
     ],
-    stack: ["React", "Firebase", "Python"],
+    stack: ["AWS", "WordPress", "HTML", "CSS", "Illustrator"],
+  },
+  {
+    company: "Inter-Services Public Relations (ISPR)",
+    role: "Tech & Media Intern",
+    duration: "Jul 2025 – Aug 2025",
+    description:
+      "Worked on technology-driven media projects and explored AI applications in cybersecurity within a defense environment.",
+    achievements: [
+      "Researched AI use cases for digital security.",
+      "Assisted with media and data-driven communication tools.",
+    ],
+    stack: ["Python", "TensorFlow", "OpenCV"],
   },
 ];
