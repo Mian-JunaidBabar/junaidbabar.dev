@@ -2,7 +2,16 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { Code, Brain, Zap, Cloud, Palette } from "lucide-react";
 import { services } from "@/data/services";
+
+const iconMap = {
+  Code,
+  Brain,
+  Zap,
+  Cloud,
+  Palette,
+};
 
 export default function Services() {
   return (
@@ -40,7 +49,13 @@ export default function Services() {
             >
               <div className="flex flex-col items-center text-center space-y-4">
                 <div className="p-3 bg-primary/10 dark:bg-primary/20 rounded-xl group-hover:bg-primary transition-all duration-300">
-                  <service.icon className="w-8 h-8 text-primary group-hover:text-white transition-colors" />
+                  {(() => {
+                    const IconComponent =
+                      iconMap[service.icon as keyof typeof iconMap];
+                    return IconComponent ? (
+                      <IconComponent className="w-8 h-8 text-primary group-hover:text-white transition-colors" />
+                    ) : null;
+                  })()}
                 </div>
 
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">

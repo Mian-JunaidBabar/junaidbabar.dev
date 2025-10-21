@@ -3,10 +3,11 @@ import Hero from "@/components/Hero";
 import { SectionHeader } from "@/components/SectionHeader";
 import { MotionWrapper } from "@/components/MotionWrapper";
 import { Card } from "@/components/Card";
-import { about } from "@/data/about";
+import { about, homePageAboutSection } from "@/data/about";
 import { services } from "@/data/services";
 import { projects } from "@/data/projects";
 import { blogs } from "@/data/blog";
+import { User, Rocket, Brain } from "lucide-react";
 
 export default function Home() {
   const featuredProjects = projects.slice(0, 3);
@@ -17,37 +18,50 @@ export default function Home() {
     <div className="space-y-24 pb-24">
       <Hero />
 
-      <section className="mx-auto max-w-4xl px-4 sm:px-6">
-        <MotionWrapper>
-          <SectionHeader
-            eyebrow="About"
-            title="Creating human-centered products with AI and web craftsmanship"
-            description={about.homePageBio}
-          />
-          <div className="mt-6 rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/60">
-            <p className="text-sm text-slate-600 dark:text-slate-300">
-              {about.fullBio}
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              {about.focusAreas.map((area) => (
-                <span
-                  key={area}
-                  className="rounded-full border border-slate-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
-                >
-                  {area}
-                </span>
-              ))}
-            </div>
-            <div className="mt-6">
+      {/* About Section */}
+      <section className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Left Column: Philosophy */}
+          <MotionWrapper className="flex flex-col justify-center">
+            <SectionHeader
+              eyebrow={homePageAboutSection.eyebrow}
+              title={homePageAboutSection.title}
+              description={about.homePageBio} // Use the short bio from our main about object
+            />
+            <div className="mt-8">
               <Link
                 href="/about"
-                className="text-sm font-semibold text-sky-600 transition hover:text-sky-500 dark:text-sky-300"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-sky-600 transition hover:text-sky-500 dark:text-sky-300"
               >
-                Read full bio →
+                Read my full story
+                <span aria-hidden="true">→</span>
               </Link>
             </div>
-          </div>
-        </MotionWrapper>
+          </MotionWrapper>
+
+          {/* Right Column: Approach */}
+          <MotionWrapper delay={0.1}>
+            <div className="space-y-8">
+              {homePageAboutSection.approachItems.map((item) => (
+                <div key={item.title} className="flex gap-4">
+                  <div className="mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-sky-50 dark:bg-slate-800">
+                    {item.icon === "User" && <User className="h-5 w-5" />}
+                    {item.icon === "Rocket" && <Rocket className="h-5 w-5" />}
+                    {item.icon === "Brain" && <Brain className="h-5 w-5" />}
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-slate-800 dark:text-slate-100">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </MotionWrapper>
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 sm:px-6">

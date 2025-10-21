@@ -10,6 +10,7 @@ export interface Service {
   fullDesc: string;
   tags: string[];
   roadmap: ServiceRoadmapStep[];
+  icon: string;
 }
 
 export const services = [
@@ -21,6 +22,7 @@ export const services = [
     fullDesc:
       "I design and develop full-stack web platforms using modern frameworks like Next.js and NestJS. My approach combines clean architecture, API-first design, and performance-driven deployment. Whether it’s a SaaS dashboard or a custom client portal, the goal is to build products that are beautiful, maintainable, and scalable.",
     tags: ["Next.js", "NestJS", "React", "Node.js", "SQL", "Firebase"],
+    icon: "Code",
     roadmap: [
       {
         step: "Discovery",
@@ -49,6 +51,7 @@ export const services = [
     fullDesc:
       "I build AI-powered apps that actually make sense in production — from using OpenAI or Gemini APIs to custom training CNNs for real use cases. I experiment with generative models, YOLO for detection, and lightweight ML systems embedded into web apps. Not just proof-of-concepts — deployable, functional intelligence.",
     tags: ["Python", "TensorFlow", "PyTorch", "Gemini API", "LangChain"],
+    icon: "Brain",
     roadmap: [
       {
         step: "Define Use Case",
@@ -76,6 +79,7 @@ export const services = [
     fullDesc:
       "I design automation pipelines that connect tools, sync data, and reduce manual work. From backend integrations to task automation scripts, I use Node.js, Firebase, and cloud functions to build seamless systems that talk to each other — saving teams hours of repetitive effort.",
     tags: ["APIs", "Node.js", "Firebase", "Zapier", "Automation"],
+    icon: "Zap",
     roadmap: [
       {
         step: "Workflow Mapping",
@@ -102,6 +106,7 @@ export const services = [
     fullDesc:
       "I work with AWS and Azure to architect infrastructure that scales and stays online. From CI/CD pipelines to containerized deployments, my setups are clean, automated, and cost-efficient — making devops less painful and scaling frictionless.",
     tags: ["AWS", "Azure", "Docker", "CI/CD", "Kubernetes"],
+    icon: "Cloud",
     roadmap: [
       {
         step: "Infra Planning",
@@ -129,6 +134,7 @@ export const services = [
     fullDesc:
       "I design brand kits, social campaigns, and marketing visuals that help startups and creators stand out. Using Illustrator, Photoshop, and Canva, I focus on storytelling through design — backed by data-driven strategy and clean execution.",
     tags: ["Illustrator", "Photoshop", "Canva", "Meta Ads", "Branding"],
+    icon: "Palette",
     roadmap: [
       {
         step: "Brand Strategy",

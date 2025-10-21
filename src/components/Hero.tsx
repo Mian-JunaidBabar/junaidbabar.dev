@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { about } from "@/data/about";
@@ -12,19 +12,6 @@ import {
   MapPin,
   Zap,
 } from "lucide-react";
-
-const focusVariants: Variants = {
-  hidden: { opacity: 0, y: 12 },
-  visible: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.4 + index * 0.05,
-      duration: 0.4,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  }),
-};
 
 const expertiseIcons = {
   "AI-Driven Web Apps": <BrainCircuit size={20} />,
@@ -65,12 +52,12 @@ export default function Hero() {
 
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {about.focusAreas.map((area) => (
-              <div key={area} className="flex items-center gap-3">
+              <div key={area.title} className="flex items-center gap-3">
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sky-100 text-sky-600 dark:bg-sky-900/50 dark:text-sky-300">
-                  {expertiseIcons[area as keyof typeof expertiseIcons]}
+                  {expertiseIcons[area.title as keyof typeof expertiseIcons]}
                 </div>
                 <span className="font-semibold text-slate-700 dark:text-slate-200">
-                  {area}
+                  {area.title}
                 </span>
               </div>
             ))}

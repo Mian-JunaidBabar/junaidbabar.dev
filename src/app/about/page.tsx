@@ -14,21 +14,13 @@ export default function AboutPage() {
 
       <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         <MotionWrapper className="space-y-6">
-          <p className="text-base leading-relaxed text-slate-600 dark:text-slate-300">
-            {about.fullBio}
-          </p>
-          <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/70">
-            <h3 className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">
-              Focus areas
-            </h3>
-            <ul className="mt-4 space-y-3 text-sm text-slate-600 dark:text-slate-300">
-              {about.focusAreas.map((area) => (
-                <li key={area} className="flex items-center gap-3">
-                  <span className="h-2 w-2 rounded-full bg-sky-500" />
-                  {area}
-                </li>
+          <div className="space-y-6 text-base leading-relaxed text-slate-600 dark:text-slate-300">
+            {about.fullBio
+              .split(/\n\n/)
+              .filter((para) => para.trim())
+              .map((para, idx) => (
+                <p key={idx}>{para.trim()}</p>
               ))}
-            </ul>
           </div>
         </MotionWrapper>
 
@@ -53,6 +45,26 @@ export default function AboutPage() {
             </p>
           </div>
         </MotionWrapper>
+      </div>
+      <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/70">
+        <h3 className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">
+          My Core Capabilities
+        </h3>
+        <div className="mt-6 space-y-6">
+          {about.focusAreas.map((area) => (
+            <div key={area.title} className="relative">
+              <div className="absolute top-2.5 left-0 h-full w-px bg-slate-200 dark:bg-slate-800">
+                <div className="absolute top-0 -left-[5px] h-2.5 w-2.5 rounded-full bg-sky-500" />
+                {area.description}
+              </div>
+              <div className="ml-6">
+                <h4 className="font-semibold text-slate-800 dark:text-slate-100">
+                  {area.title}
+                </h4>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -5,39 +5,75 @@ export interface About {
   heroSummary: string;
   homePageBio: string;
   fullBio: string;
-  focusAreas: string[];
+  focusAreas: { title: string; description: string }[];
   contactEmail: string;
   profileImage: string;
 }
-
-// Updated about.ts
 
 export const about: About = {
   name: "Junaid Babar",
   title: "Full Stack Developer Specializing in AI-Powered Web Applications",
   location: "Lahore, Pakistan",
-
-  // JOB #1: The 5-Second Hook for the HERO SECTION.
-  // It must be client-focused. It answers "What can you do FOR ME?"
   heroSummary:
     "I help innovative companies build intelligent web applications that automate tasks, analyze data, and create smarter user experiences.",
 
-  // JOB #2: A slightly more detailed snippet for the ABOUT SECTION ON THE HOME PAGE.
-  // This is a bridge that makes them want to click "Read full bio".
   homePageBio:
     "Beyond the code, I'm a product-focused engineer who bridges the gap between technical execution and business goals. I thrive on building tools that are not only powerful but also intuitive and enjoyable to use.",
 
-  // JOB #3: Your full story for the DEDICATED /ABOUT PAGE.
-  // This is where your original 'bio' content should go.
-  fullBio:
-    "I'm the kind of developer who doesn't just code features; I build systems that think. My work spans full-stack web development and AI integration — from designing smooth frontends with React and Next.js to engineering backends that process data intelligently. I believe technology should be fast, functional, and smart enough to adapt to users, not the other way around. Currently, I'm working on Harmoni — an AI-powered collaboration tool that unifies task management, meetings, and communication in one workspace.",
+  fullBio: `From the moment I realized that a few lines of code could create something that thinks and reacts, I was hooked. For me, computer science isn't just about building applications; it's about solving puzzles, efficient solution that turns a complex business problem into a simple, intuitive tool.
+
+  My philosophy is built on a foundation of clean code and clear communication. I believe the best products emerge from a deep understanding of the user's needs, which is why I focus on bridging the gap between a powerful backend and a user-friendly frontend. I thrive on the process of experimenting, breaking things, and rebuilding them better, always with the end goal in sight: did this solve the problem it was made for?
+
+  Ultimately, I build intelligent systems and AI-powered web platforms for businesses that want to work smarter, not harder. Whether it's automating a workflow or uncovering data-driven insights, my goal is to create technology that feels less like another browser tab and more like a trusted teammate.
+  `,
 
   focusAreas: [
-    "AI-Driven Web Apps",
-    "Automation & Integrations",
-    "Full-Stack Development",
-    "Product & UX Thinking",
+    {
+      title: "AI-Driven Web Apps",
+      description:
+        "I build web applications that go beyond static pages. By integrating machine learning, I create smarter, more personalized experiences that can analyze data, automate decisions, and provide real value to your users.",
+    },
+    {
+      title: "Automation & Integrations",
+      description:
+        "I specialize in connecting disparate systems and automating repetitive workflows. Whether it's integrating with third-party APIs or building custom scripts, my goal is to save your team time and eliminate manual effort.",
+    },
+    {
+      title: "Full-Stack Development",
+      description:
+        "I manage the entire lifecycle of a project, from the database architecture to the user-facing interface. This end-to-end ownership ensures a cohesive, robust, and seamless product experience.",
+    },
+    {
+      title: "Product & UX Thinking",
+      description:
+        "I'm a developer who thinks like a product manager. I focus on the 'why' behind the 'what,' ensuring that every feature I build is not only technically sound but also solves a real user problem and aligns with your business goals.",
+    },
   ],
   contactEmail: "junaidbabar121@gmail.com",
   profileImage: "/profile.jpg",
+};
+
+export const homePageAboutSection = {
+  eyebrow: "About Me",
+  title: "A builder who bridges strategy and execution",
+  approachItems: [
+    {
+      icon: "User",
+      title: "User-Centric Design",
+      description:
+        "I start with the end-user, ensuring the final product is intuitive, accessible, and solves a real-world problem.",
+    },
+    {
+      icon: "Rocket",
+      title: "Scalable Architecture",
+      description:
+        "I build with clean code and robust architecture, creating systems that are designed to grow and adapt with your business.",
+    },
+    {
+      icon: "Brain",
+      title: "AI-Powered Solutions",
+      description:
+        "I leverage AI not as a buzzword, but as a practical tool to build smarter, more efficient, and data-driven applications.",
+    },
+  ],
 };

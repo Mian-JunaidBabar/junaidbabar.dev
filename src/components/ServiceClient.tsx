@@ -14,6 +14,41 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
+interface SkillDetail {
+  name: string;
+  description: string;
+}
+
+interface Service {
+  slug: string;
+  title: string;
+  shortDesc: string;
+  fullDesc: string;
+  tags: string[];
+  roadmap: { step: string; detail: string }[];
+  icon: string;
+  targetClients?: string[];
+  skillsDetailed?: SkillDetail[];
+}
+
+interface Project {
+  slug: string;
+  name: string;
+  description: string;
+  image: string;
+  tech: string[];
+  role?: string;
+  year: string;
+  liveUrl: string;
+  githubUrl: string;
+  content: string;
+}
+
+interface ServiceClientProps {
+  service: Service;
+  relatedProjects: Project[];
+}
+
 function iconForSlug(slug: string) {
   switch (slug) {
     case "web-development":
@@ -33,7 +68,10 @@ function iconForSlug(slug: string) {
   }
 }
 
-export default function ServiceClient({ service, relatedProjects }: any) {
+export default function ServiceClient({
+  service,
+  relatedProjects,
+}: ServiceClientProps) {
   const ServiceIcon = iconForSlug(service.slug || "");
 
   return (
@@ -116,12 +154,12 @@ export default function ServiceClient({ service, relatedProjects }: any) {
             </h2>
             <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 max-w-2xl">
               Short explanations so you know what each technical item means in
-              practice and how I'd use it on your project.
+              practice and how I&apos;d use it on your project.
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-4">
-            {service.skillsDetailed?.map((s: any, i: number) => (
+            {service.skillsDetailed?.map((s: SkillDetail, i: number) => (
               <motion.div
                 key={s.name}
                 initial={{ opacity: 0, x: -10 }}
@@ -166,28 +204,30 @@ export default function ServiceClient({ service, relatedProjects }: any) {
             </motion.div>
 
             <ol className="space-y-4">
-              {service.roadmap.map((step: any, idx: number) => (
-                <motion.li
-                  key={step.title}
-                  initial={{ opacity: 0, y: 6 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.05, duration: 0.35 }}
-                  className="flex gap-4 items-start"
-                >
-                  <div className="flex items-center justify-center min-w-[40px] h-[40px] rounded-full bg-primary/10 text-primary font-semibold">
-                    {idx + 1}
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900 dark:text-white">
-                      {step.title}
+              {service.roadmap.map(
+                (step: { step: string; detail: string }, idx: number) => (
+                  <motion.li
+                    key={step.step}
+                    initial={{ opacity: 0, y: 6 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.05, duration: 0.35 }}
+                    className="flex gap-4 items-start"
+                  >
+                    <div className="flex items-center justify-center min-w-[40px] h-[40px] rounded-full bg-primary/10 text-primary font-semibold">
+                      {idx + 1}
                     </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-300">
-                      {step.detail}
+                    <div>
+                      <div className="font-semibold text-gray-900 dark:text-white">
+                        {step.step}
+                      </div>
+                      <div className="text-sm text-gray-600 dark:text-gray-300">
+                        {step.detail}
+                      </div>
                     </div>
-                  </div>
-                </motion.li>
-              ))}
+                  </motion.li>
+                )
+              )}
             </ol>
           </div>
         </section>
@@ -209,7 +249,7 @@ export default function ServiceClient({ service, relatedProjects }: any) {
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {relatedProjects.slice(0, 6).map((project: any, i: number) => (
+              {relatedProjects.slice(0, 6).map((project: Project) => (
                 <article
                   key={project.name}
                   className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 shadow-sm"
@@ -218,13 +258,13 @@ export default function ServiceClient({ service, relatedProjects }: any) {
                     {project.name}
                   </h3>
                   <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 line-clamp-3">
-                    {project.summary || project.description || ""}
+                    {project.description}
                   </p>
 
                   <div className="flex items-center gap-3">
-                    {project.url ? (
+                    {project.liveUrl ? (
                       <a
-                        href={project.url}
+                        href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-primary text-sm inline-flex items-center gap-2"
@@ -251,8 +291,9 @@ export default function ServiceClient({ service, relatedProjects }: any) {
             Ready to start?
           </h3>
           <p className="text-sm text-gray-600 dark:text-gray-300 mb-6 max-w-xl mx-auto">
-            If this sounds like the right fit, let's discuss scope, timeline and
-            budget. I'll propose a short plan and the next steps.
+            If this sounds like the right fit, let&apos;s discuss scope,
+            timeline and budget. I&apos;ll propose a short plan and the next
+            steps.
           </p>
 
           <div className="flex justify-center gap-4">

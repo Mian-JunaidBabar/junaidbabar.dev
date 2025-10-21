@@ -10,11 +10,11 @@ export function generateStaticParams() {
 }
 
 interface BlogPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
-export default function BlogPostPage({ params }: BlogPageProps) {
-  const { slug } = params;
+export default async function BlogPostPage({ params }: BlogPageProps) {
+  const { slug } = await params;
   const post = blogs.find((entry) => entry.slug === slug);
 
   if (!post) {

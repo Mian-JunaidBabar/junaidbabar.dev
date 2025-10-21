@@ -7,7 +7,6 @@ interface TypewriterProps {
   typingSpeed?: number; // ms per char
   deletingSpeed?: number; // ms per char
   pauseTime?: number; // ms at end of phrase
-  loop?: boolean;
   className?: string;
 }
 
@@ -16,7 +15,6 @@ export default function Typewriter({
   typingSpeed = 80,
   deletingSpeed = 40,
   pauseTime = 1200,
-  loop = true,
   className = "",
 }: TypewriterProps) {
   const [index, setIndex] = useState(0);

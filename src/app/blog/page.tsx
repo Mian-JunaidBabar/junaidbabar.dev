@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { blogs } from "@/data/blog";
 import { SectionHeader } from "@/components/SectionHeader";
 import { MotionWrapper } from "@/components/MotionWrapper";
