@@ -4,7 +4,14 @@ import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { about } from "@/data/about";
-import { ArrowRight, MapPin } from "lucide-react";
+import {
+  ArrowRight,
+  BrainCircuit,
+  Layers,
+  Lightbulb,
+  MapPin,
+  Zap,
+} from "lucide-react";
 
 const focusVariants: Variants = {
   hidden: { opacity: 0, y: 12 },
@@ -17,6 +24,13 @@ const focusVariants: Variants = {
       ease: [0.16, 1, 0.3, 1],
     },
   }),
+};
+
+const expertiseIcons = {
+  "AI-Driven Web Apps": <BrainCircuit size={20} />,
+  "Automation & Integrations": <Zap size={20} />,
+  "Full-Stack Development": <Layers size={20} />,
+  "Product & UX Thinking": <Lightbulb size={20} />,
 };
 
 export default function Hero() {
@@ -46,21 +60,19 @@ export default function Hero() {
           </div>
 
           <p className="max-w-2xl text-base text-slate-600 dark:text-slate-300 sm:text-lg">
-            {about.summary}
+            {about.heroSummary}
           </p>
 
-          <div className="flex flex-wrap gap-2">
-            {about.focusAreas.map((area, index) => (
-              <motion.span
-                key={area}
-                initial="hidden"
-                animate="visible"
-                variants={focusVariants}
-                custom={index}
-                className="rounded-full border border-slate-200/80 bg-white/90 px-4 py-1 text-sm font-medium text-slate-700 shadow-sm dark:border-slate-700/70 dark:bg-slate-900/80 dark:text-slate-200"
-              >
-                {area}
-              </motion.span>
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {about.focusAreas.map((area) => (
+              <div key={area} className="flex items-center gap-3">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sky-100 text-sky-600 dark:bg-sky-900/50 dark:text-sky-300">
+                  {expertiseIcons[area as keyof typeof expertiseIcons]}
+                </div>
+                <span className="font-semibold text-slate-700 dark:text-slate-200">
+                  {area}
+                </span>
+              </div>
             ))}
           </div>
 

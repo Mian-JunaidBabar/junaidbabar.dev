@@ -22,7 +22,7 @@ export default function Footer() {
             {about.name}
           </p>
           <p className="max-w-md text-sm text-slate-600 dark:text-slate-300">
-            {about.bio}
+            {about.homePageBio}
           </p>
         </div>
 

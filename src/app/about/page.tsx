@@ -9,13 +9,13 @@ export default function AboutPage() {
       <SectionHeader
         eyebrow="About"
         title="Meet the builder behind the portfolio"
-        description={about.summary}
+        description={about.homePageBio}
       />
 
       <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         <MotionWrapper className="space-y-6">
           <p className="text-base leading-relaxed text-slate-600 dark:text-slate-300">
-            {about.bio}
+            {about.fullBio}
           </p>
           <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/70">
             <h3 className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">

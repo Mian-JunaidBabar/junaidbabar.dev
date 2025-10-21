@@ -22,11 +22,11 @@ export default function Home() {
           <SectionHeader
             eyebrow="About"
             title="Creating human-centered products with AI and web craftsmanship"
-            description={about.bio}
+            description={about.homePageBio}
           />
           <div className="mt-6 rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/60">
             <p className="text-sm text-slate-600 dark:text-slate-300">
-              {about.summary}
+              {about.fullBio}
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               {about.focusAreas.map((area) => (
