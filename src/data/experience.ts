@@ -5,6 +5,7 @@ export interface ExperienceItem {
   description: string;
   achievements: string[];
   stack: string[];
+  logo: string;
 }
 
 export const experience: ExperienceItem[] = [
@@ -12,6 +13,7 @@ export const experience: ExperienceItem[] = [
     company: "Cubic Solutions",
     role: "Associate Software Engineer",
     duration: "Aug 2025 – Present",
+    logo: "/logos/company/cubic.png",
     description:
       "A key engineer on the team responsible for the complete architectural overhaul of OmniBlox, the company's core enterprise platform. The mission is to migrate a legacy PHP system to a modern, high-performance stack to address critical scalability and maintainability issues.",
     achievements: [
@@ -34,6 +36,7 @@ export const experience: ExperienceItem[] = [
     company: "Inter-Services Public Relations (ISPR)",
     role: "Technology & Strategy Training Program",
     duration: "Jul 2025 – Aug 2025",
+    logo: "/logos/company/ispr.jpg",
     description:
       "Selected for a competitive national-level program focused on the intersection of technology, cybersecurity, and strategic communications in a defense environment.",
     achievements: [
@@ -47,6 +50,7 @@ export const experience: ExperienceItem[] = [
     company: "TezHost",
     role: "Web Development Intern",
     duration: "May 2025 – Oct 2025",
+    logo: "/logos/company/tezhost.png",
     description:
       "A structured internship focused on practical skills in a fast-paced agency environment, contributing to client projects and building foundational knowledge in cloud infrastructure.",
     achievements: [
@@ -60,6 +64,7 @@ export const experience: ExperienceItem[] = [
     company: "Deal.ai",
     role: "Web Developer & Designer",
     duration: "Mar 2024 – May 2025",
+    logo: "/logos/company/deal.png",
     description:
       "Developed and designed AI-powered and custom-coded web solutions for a diverse client base, managing projects from conception to deployment.",
     achievements: [

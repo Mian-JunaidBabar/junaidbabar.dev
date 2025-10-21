@@ -17,7 +17,7 @@ export interface PublicationItem {
 export const education: EducationItem[] = [
   {
     institution: "Superior University, Lahore",
-    logo: "/logos/superior-university-logo.png",
+    logo: "/logos/education/university_logo.png",
     degree: "Bachelor of Science in Computer Science",
     duration: "2022 – Present",
     details: [
@@ -28,7 +28,7 @@ export const education: EducationItem[] = [
   },
   {
     institution: "Government Islamia Graduate College, Civil Lines",
-    logo: "/logos/islamia-college-logo.png",
+    logo: "/logos/education/college_logo.png",
     degree: "FSc, Pre-Engineering",
     duration: "2020 – 2022",
     details: [

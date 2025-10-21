@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { experience } from "@/data/experience";
 import { SectionHeader } from "@/components/SectionHeader";
 import { MotionWrapper } from "@/components/MotionWrapper";
@@ -26,13 +27,25 @@ export default function ExperiencePage() {
             <div className="absolute -left-2.5 mt-1 h-5 w-5 rounded-full border-2 border-white bg-sky-500 shadow-md shadow-sky-500/30 dark:border-slate-900" />
             <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/70">
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <div>
-                  <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
-                    {role.role}
-                  </h3>
-                  <p className="text-sm text-slate-500 dark:text-slate-400">
-                    {role.company}
-                  </p>
+                <div className="flex items-center gap-4">
+                  {/* Logo container: fixed square with object-contain to handle varying aspect ratios */}
+                  <div className="flex h-14 w-14 flex-none items-center justify-center rounded-full bg-white shadow-sm">
+                    <Image
+                      src={role.logo}
+                      alt={`${role.company} logo`}
+                      width={48}
+                      height={48}
+                      className="h-10 w-10 object-contain"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+                      {role.role}
+                    </h3>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">
+                      {role.company}
+                    </p>
+                  </div>
                 </div>
                 <span className="rounded-full border border-sky-200/70 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-sky-600 dark:border-sky-800/60 dark:text-sky-300">
                   {role.duration}
