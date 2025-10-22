@@ -165,4 +165,3 @@ See the [LICENSE](./LICENSE) file for full details.
 <div align="center">
 Built with ❤️ by <strong>Junaid Babar</strong> — blending code, design, and intelligence.
 </div>
-```
