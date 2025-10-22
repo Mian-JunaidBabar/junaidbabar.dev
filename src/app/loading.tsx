@@ -18,11 +18,6 @@ const dotVariants = {
   hidden: { y: 0 }, // Start position
   visible: {
     y: [0, -20, 0], // Keyframes: go up to -20px and back down to 0
-    transition: {
-      duration: 0.6,
-      ease: "easeInOut",
-      repeat: Infinity, // Loop the animation forever
-    },
   },
 };
 
@@ -38,14 +33,29 @@ export default function Loading() {
         <motion.div
           className="h-4 w-4 rounded-full bg-sky-500"
           variants={dotVariants}
+          transition={{
+            duration: 0.6,
+            ease: [0.4, 0, 0.2, 1],
+            repeat: Infinity,
+          }}
         />
         <motion.div
           className="h-4 w-4 rounded-full bg-sky-500"
           variants={dotVariants}
+          transition={{
+            duration: 0.6,
+            ease: [0.4, 0, 0.2, 1],
+            repeat: Infinity,
+          }}
         />
         <motion.div
           className="h-4 w-4 rounded-full bg-sky-500"
           variants={dotVariants}
+          transition={{
+            duration: 0.6,
+            ease: [0.4, 0, 0.2, 1],
+            repeat: Infinity,
+          }}
         />
       </motion.div>
     </div>

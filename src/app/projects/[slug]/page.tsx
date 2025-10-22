@@ -118,14 +118,21 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     Visit Live Project <ArrowUpRight className="h-4 w-4" />
                   </a>
                 )}
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300/70 bg-white/80 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-sky-400 hover:text-sky-500 dark:border-slate-700/70 dark:bg-slate-900/60 dark:text-slate-200"
-                >
-                  View on GitHub <Github className="h-4 w-4" />
-                </a>
+                {project.githubUrl && project.githubUrl.trim() !== "" ? (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300/70 bg-white/80 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-sky-400 hover:text-sky-500 dark:border-slate-700/70 dark:bg-slate-900/60 dark:text-slate-200"
+                  >
+                    View on GitHub <Github className="h-4 w-4" />
+                  </a>
+                ) : (
+                  <div className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300/70 bg-slate-50/80 px-5 py-3 text-sm font-semibold text-slate-500 dark:border-slate-700/70 dark:bg-slate-900/60 dark:text-slate-400">
+                    <Github className="h-4 w-4" />
+                    Repository coming soon
+                  </div>
+                )}
               </div>
             </div>
           </div>
