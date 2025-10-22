@@ -1,9 +1,3 @@
-Here’s your **final polished `README.md`** — clean, professional, and written exactly in your tone. It’s structured for open-source readability, GitHub SEO, and professional employer impressions.
-Just copy–paste this directly into your repo’s root.
-
----
-
-```markdown
 # 🧠 Junaid Babar — Personal Portfolio & Brand Platform
 
 ![Portfolio Showcase](./public/portfolio-showcase.png)
@@ -17,7 +11,7 @@ Just copy–paste this directly into your repo’s root.
 
 <div align="center">
 
-[![View Live Portfolio](https://img.shields.io/badge/View_Live_Portfolio-22C55E?style=for-the-badge&logo=vercel&logoColor=white)](https://your-domain.com)
+[![View Live Portfolio](https://img.shields.io/badge/View_Live_Portfolio-22C55E?style=for-the-badge&logo=vercel&logoColor=white)](https://junaidbabar-dev.vercel.app/)
 
 <!-- TODO: Replace above URL with your actual live domain -->
 
