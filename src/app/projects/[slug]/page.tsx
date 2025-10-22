@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects, type Project } from "@/data/projects";
 import { MotionWrapper } from "@/components/MotionWrapper";
+import { ProjectImage } from "@/components/ProjectImage";
 import { ArrowUpRight, Github, ArrowLeft } from "lucide-react";
 
 export function generateStaticParams() {
@@ -10,11 +10,11 @@ export function generateStaticParams() {
 }
 
 interface ProjectPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-  const { slug } = params;
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { slug } = await params;
   const project = projects.find((p: Project) => p.slug === slug);
 
   if (!project) {
@@ -41,7 +41,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       {/* 2. Main Project Image */}
       <MotionWrapper delay={0.1}>
         <div className="relative aspect-video overflow-hidden rounded-3xl border border-slate-200/80 bg-white/60 shadow-lg dark:border-slate-800/70 dark:bg-slate-950/60">
-          <Image
+          <ProjectImage
             src={project.image}
             alt={project.name}
             fill
@@ -175,7 +175,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 key={index}
                 className="relative aspect-video overflow-hidden rounded-xl border border-slate-200/80 shadow-md"
               >
-                <Image
+                <ProjectImage
                   src={image}
                   alt={`${project.name} gallery image ${index + 1}`}
                   fill

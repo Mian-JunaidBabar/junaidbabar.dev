@@ -35,7 +35,7 @@ export const projects: Project[] = [
     tagline: "An All-in-One ERP & CRM for Modern Businesses",
     description:
       "A unified platform to manage the entire business lifecycle from sales pipelines to inventory.",
-    image: "/projects/omniblox.png",
+    image: "/projects/omni.png",
     category: "Full-Stack Application",
     year: "2025",
     role: "Associate Software Engineer",
@@ -130,7 +130,7 @@ export const projects: Project[] = [
     tagline: "High-Accuracy Crop Health Analysis for Farmers",
     description:
       "A CNN-powered web app that identifies 30+ plant diseases with 97% validation accuracy and provides AI-generated treatment advice.",
-    image: "/projects/plant.png",
+    image: "/projects/pdd.png",
     category: "AI & Machine Learning",
     year: "2024",
     role: "AI/ML Developer",
@@ -264,7 +264,7 @@ export const projects: Project[] = [
     tagline: "An Early-Stage CNN Model for Medical Image Analysis",
     description:
       "A foundational deep learning project to classify skin lesions using the HAM10000 dataset.",
-    image: "/projects/skin-cancer.png",
+    image: "/projects/scd.png",
     category: "AI & Machine Learning",
     year: "2023",
     role: "AI/ML Developer",
