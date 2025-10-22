@@ -1,0 +1,44 @@
+﻿   Γû▓ Next.js 15.5.4
+   - Environments: .env
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully in 5.1s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/21) ...
+   Generating static pages (5/21) 
+   Generating static pages (10/21) 
+   Generating static pages (15/21) 
+ Γ£ô Generating static pages (21/21)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+Γöî Γùï /                                    4.76 kB         154 kB
+Γö£ Γùï /_not-found                            127 B         102 kB
+Γö£ Γùï /about                                 386 B         149 kB
+Γö£ ╞Æ /api/send-email                        127 B         102 kB
+Γö£ Γùï /contact                             5.32 kB         151 kB
+Γö£ Γùï /education                           3.09 kB         153 kB
+Γö£ Γùï /experience                          2.92 kB         152 kB
+Γö£ Γùï /projects                            5.52 kB         154 kB
+Γö£ ΓùÅ /projects/[slug]                       842 B         150 kB
+Γö£   Γö£ /projects/omniblox
+Γö£   Γö£ /projects/harmoni-ai
+Γö£   Γö£ /projects/plant-disease-detector
+Γö£   Γöö [+3 more paths]
+Γö£ Γùï /services                            4.07 kB         148 kB
+Γöö ΓùÅ /services/[slug]                       379 B         144 kB
+    Γö£ /services/custom-ai-applications
+    Γö£ /services/ai-model-integration
+    Γöö /services/mvp-prototyping
++ First Load JS shared by all             102 kB
+  Γö£ chunks/255-4efeec91c7871d79.js       45.7 kB
+  Γö£ chunks/4bd1b696-c023c6e3521b1417.js  54.2 kB
+  Γöö other shared chunks (total)          1.99 kB
+
+
+Γùï  (Static)   prerendered as static content
+ΓùÅ  (SSG)      prerendered as static HTML (uses generateStaticParams)
+╞Æ  (Dynamic)  server-rendered on demand
+

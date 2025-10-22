@@ -108,8 +108,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
             Ready to build your vision?
           </h2>
           <p className="mt-4 text-slate-600 dark:text-slate-300">
-            Let's discuss how this service can be tailored to your project's
-            unique needs.
+            Let&#39;s discuss how this service can be tailored to your
+            project&#39;s unique needs.
           </p>
           <div className="mt-8">
             <Link

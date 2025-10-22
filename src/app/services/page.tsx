@@ -30,41 +30,46 @@ export default function ServicesPage() {
       </motion.div>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {services.map((service, index) => (
-          <motion.div
-            key={service.title}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={cardVariants}
-            transition={{
-              duration: 0.5,
-              ease: [0.4, 0, 0.2, 1],
-              delay: index * 0.1,
-            }}
-          >
-            <Link
-              href={`/services/${service.slug}`}
-              className="group flex h-full flex-col rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-950/70"
+        {services.map((service, index) => {
+          const Icon = service.icon;
+          return (
+            <motion.div
+              key={service.title}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={cardVariants}
+              transition={{
+                duration: 0.5,
+                ease: [0.4, 0, 0.2, 1],
+                delay: index * 0.1,
+              }}
             >
-              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-100 dark:bg-sky-900/50">
-                <service.icon className="h-6 w-6 text-sky-600 dark:text-sky-300" />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
-                  {service.title}
-                </h3>
-                <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
-                  {service.shortDesc}
-                </p>
-              </div>
-              <span className="mt-6 inline-flex items-center text-sm font-semibold text-sky-600 transition group-hover:text-sky-500 dark:text-sky-300">
-                Learn more about my process{" "}
-                <ArrowRight className="ml-1 h-4 w-4" />
-              </span>
-            </Link>
-          </motion.div>
-        ))}
+              <Link
+                href={`/services/${service.slug}`}
+                className="group flex h-full flex-col rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-950/70"
+              >
+                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-100 dark:bg-sky-900/50">
+                  {Icon && (
+                    <Icon className="h-6 w-6 text-sky-600 dark:text-sky-300" />
+                  )}
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+                    {service.title}
+                  </h3>
+                  <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
+                    {service.shortDesc}
+                  </p>
+                </div>
+                <span className="mt-6 inline-flex items-center text-sm font-semibold text-sky-600 transition group-hover:text-sky-500 dark:text-sky-300">
+                  Learn more about my process
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </span>
+              </Link>
+            </motion.div>
+          );
+        })}
       </div>
 
       <motion.div
@@ -76,17 +81,17 @@ export default function ServicesPage() {
       >
         <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-8 text-center shadow-sm dark:border-slate-800 dark:bg-slate-950/70">
           <h2 className="text-xl font-semibold text-slate-800 dark:text-white">
-            Have a project that doesn't fit neatly into a box?
+            Have a project that doesn&#39;t fit neatly into a box?
           </h2>
           <p className="mt-3 text-slate-600 dark:text-slate-300">
-            That's perfect. The most interesting projects rarely do.
+            That&#39;s perfect. The most interesting projects rarely do.
           </p>
           <div className="mt-6">
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-500/20 transition hover:bg-sky-500"
             >
-              Let's scope it together
+              Let&#39;s scope it together
             </Link>
           </div>
         </div>

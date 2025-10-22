@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, Github, Linkedin, ArrowUpRight } from "lucide-react";
+import { Github, Linkedin, ArrowUpRight } from "lucide-react";
 import { about } from "@/data/about";
 
 // The navigation links we want to show in the footer sitemap
@@ -76,8 +76,8 @@ export default function Footer() {
               Get in Touch
             </h3>
             <p className="text-sm text-slate-600 dark:text-slate-300">
-              Have a project in mind? I'm always open to discussing new ideas
-              and opportunities.
+              Have a project in mind? I&#39;m always open to discussing new
+              ideas and opportunities.
             </p>
             <Link
               href="/contact"

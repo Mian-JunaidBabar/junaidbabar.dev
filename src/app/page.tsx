@@ -172,7 +172,7 @@ export default function Home() {
               Have a project in mind?
             </h2>
             <p className="mt-4 text-slate-600 dark:text-slate-300">
-              Let's connect and discuss how I can bring your ideas to life.
+              Let&#39;s connect and discuss how I can bring your ideas to life.
             </p>
             <div className="mt-8">
               <Link

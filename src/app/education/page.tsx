@@ -1,15 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { education, publication } from "@/data/education";
 import { SectionHeader } from "@/components/SectionHeader";
-import { MotionWrapper } from "@/components/MotionWrapper";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring, MotionValue } from "framer-motion";
 import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 
-function TimelineLine({ scrollYProgress }: { scrollYProgress: any }) {
+function TimelineLine({
+  scrollYProgress,
+}: {
+  scrollYProgress: MotionValue<number>;
+}) {
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,

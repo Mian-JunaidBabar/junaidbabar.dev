@@ -14,11 +14,11 @@ export default function NotFound() {
         404 Error
       </p>
       <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
-        You've ventured off the map.
+        You&#39;ve ventured off the map.
       </h1>
       <p className="mt-4 max-w-lg text-slate-600 dark:text-slate-300">
-        The page you're looking for doesn't exist or has been moved. Let's get
-        you back on track.
+        The page you&#39;re looking for doesn&#39;t exist or has been moved.
+        Let&#39;s get you back on track.
       </p>
       <div className="mt-10">
         <Link

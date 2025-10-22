@@ -45,9 +45,13 @@ export async function POST(req: NextRequest) {
              <p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>`,
     });
 
-    if (!toYou || (toYou as any).error) {
+    const toYouObj = toYou as unknown as
+      | { error?: { message?: string } }
+      | null
+      | undefined;
+    if (!toYou || toYouObj?.error) {
       const err =
-        (toYou as any).error?.message || "Failed to send email to developer.";
+        toYouObj?.error?.message || "Failed to send email to developer.";
       return NextResponse.json({ error: err }, { status: 500 });
     }
 
@@ -61,7 +65,7 @@ export async function POST(req: NextRequest) {
              <p>Thank you for reaching out through my portfolio. This is a confirmation that your message has been received. I will get back to you as soon as possible.</p>
              <p>Best regards,<br>Junaid Babar</p>`,
       });
-    } catch (e) {
+    } catch (e: unknown) {
       // Log but don't fail the whole request for confirmation email issues
       console.error("Error sending confirmation to user:", e);
     }
@@ -70,11 +74,15 @@ export async function POST(req: NextRequest) {
       success: true,
       message: "Emails sent successfully!",
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     // Always return JSON to the client to avoid HTML error pages
     console.error("/api/send-email error:", error);
+    const message =
+      typeof error === "object" && error !== null && "message" in error
+        ? (error as { message?: string }).message
+        : String(error);
     return NextResponse.json(
-      { error: error?.message || String(error) },
+      { error: message || String(error) },
       { status: 500 }
     );
   }

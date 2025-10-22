@@ -3,10 +3,14 @@
 import Image from "next/image";
 import { experience } from "@/data/experience";
 import { SectionHeader } from "@/components/SectionHeader";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring, MotionValue } from "framer-motion";
 import { useRef } from "react";
 
-function TimelineLine({ scrollYProgress }: { scrollYProgress: any }) {
+function TimelineLine({
+  scrollYProgress,
+}: {
+  scrollYProgress: MotionValue<number>;
+}) {
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,

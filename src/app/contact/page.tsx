@@ -43,7 +43,7 @@ export default function ContactPage() {
       });
 
       const contentType = (res.headers.get("content-type") || "").toLowerCase();
-      let data: any = null;
+      let data: unknown = null;
 
       if (contentType.includes("application/json")) {
         data = await res.json();
@@ -54,8 +54,17 @@ export default function ContactPage() {
 
       if (!res.ok) {
         // If the response is HTML, strip tags for a readable error message
-        const textError =
-          typeof data === "string" ? stripHtml(data) : data?.error;
+        let textError: string | undefined;
+        if (typeof data === "string") {
+          textError = stripHtml(data);
+        } else if (
+          typeof data === "object" &&
+          data !== null &&
+          "error" in data
+        ) {
+          const d = data as { error?: string };
+          textError = d.error;
+        }
         setStatus("error");
         setErrorMsg(
           textError || "An error occurred while sending the message."
@@ -67,9 +76,13 @@ export default function ContactPage() {
       setName("");
       setEmail("");
       setMessage("");
-    } catch (err: any) {
+    } catch (err: unknown) {
       setStatus("error");
-      setErrorMsg(err?.message || String(err));
+      const msg =
+        typeof err === "object" && err !== null && "message" in err
+          ? (err as { message?: string }).message
+          : String(err);
+      setErrorMsg(msg || String(err));
     }
   }
   return (
@@ -88,8 +101,8 @@ export default function ContactPage() {
         <SectionHeader
           align="center"
           eyebrow="Contact"
-          title="Let's Build Something Great Together"
-          description="Have a project in mind, or just want to connect? I'm always open to discussing new ideas and opportunities."
+          title="Let&#39;s Build Something Great Together"
+          description="Have a project in mind, or just want to connect? I&#39;m always open to discussing new ideas and opportunities."
         />
       </motion.div>
 
@@ -111,9 +124,9 @@ export default function ContactPage() {
               Junaid Babar
             </h2>
             <p className="mt-2 text-slate-600 dark:text-slate-300">
-              I'm currently based in Lahore, Pakistan, and available for
-              freelance projects worldwide. Let's schedule a call to discuss how
-              I can help your business.
+              I&#39;m currently based in Lahore, Pakistan, and available for
+              freelance projects worldwide. Let&#39;s schedule a call to discuss
+              how I can help your business.
             </p>
           </div>
           <div className="space-y-4 text-sm text-slate-700 dark:text-slate-300">
