@@ -9,9 +9,7 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 
-// This is the component for the "growing" timeline line
 function TimelineLine({ scrollYProgress }: { scrollYProgress: any }) {
-  // Use useSpring for a smoother, more natural "springy" effect
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -41,6 +39,7 @@ export default function EducationPage() {
 
   return (
     <div className="mx-auto max-w-5xl space-y-24 px-4 py-24 sm:px-6">
+      {/* Header */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -56,7 +55,7 @@ export default function EducationPage() {
         />
       </motion.div>
 
-      {/* The Timeline - Now with the scroll-linked line */}
+      {/* The Timeline */}
       <div ref={timelineRef} className="relative mt-6">
         <TimelineLine scrollYProgress={scrollYProgress} />
 
@@ -67,12 +66,11 @@ export default function EducationPage() {
               key={edu.institution}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.5 }} // Trigger when 50% of the item is in view
+              viewport={{ once: true, amount: 0.5 }}
               variants={cardVariants}
               transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-              className="relative ml-6 pl-6" // Added pl-6 to give space from the line
+              className="relative ml-6 pl-6"
             >
-              {/* The dot is now part of the same animation block */}
               <div className="absolute -left-2.5 top-2 h-5 w-5 rounded-full border-2 border-white bg-sky-500 shadow-md shadow-sky-500/30 dark:border-slate-900" />
               <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/70">
                 <div className="flex flex-wrap items-center justify-between gap-3">
@@ -135,7 +133,6 @@ export default function EducationPage() {
               </span>
             </p>
 
-            {/* RENDER THE NEW DESCRIPTION */}
             <p className="mt-4 text-sm text-slate-600 dark:text-slate-300">
               {publication.description}
             </p>

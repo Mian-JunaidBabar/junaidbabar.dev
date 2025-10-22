@@ -6,13 +6,11 @@ import { Card } from "@/components/Card";
 import { about, homePageAboutSection } from "@/data/about";
 import { services } from "@/data/services";
 import { projects } from "@/data/projects";
-import { blogs } from "@/data/blog";
 import { User, Rocket, Brain } from "lucide-react";
 
 export default function Home() {
   const featuredProjects = projects.slice(0, 3);
   const featuredServices = services.slice(0, 3);
-  const featuredBlogs = blogs.slice(0, 3);
 
   return (
     <div className="space-y-24 pb-24">
@@ -64,6 +62,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Services Section */}
       <section className="mx-auto max-w-6xl px-4 sm:px-6">
         <MotionWrapper>
           <SectionHeader
@@ -95,6 +94,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Projects Section */}
       <section className="mx-auto max-w-6xl px-4 sm:px-6">
         <MotionWrapper>
           <SectionHeader
@@ -126,37 +126,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 sm:px-6">
-        <MotionWrapper>
-          <SectionHeader
-            eyebrow="Journal"
-            title="Thinking in public"
-            description="Notes on emerging technology, product strategy, and lessons learned while building for clients."
-          />
-        </MotionWrapper>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featuredBlogs.map((post, index) => (
-            <MotionWrapper key={post.slug} delay={index * 0.05}>
-              <Card
-                title={post.title}
-                description={post.excerpt}
-                tags={post.tags}
-                href={`/blog/${post.slug}`}
-                ctaLabel="Read article"
-              />
-            </MotionWrapper>
-          ))}
-        </div>
-        <div className="mt-8 text-right">
-          <Link
-            href="/blog"
-            className="text-sm font-semibold text-sky-600 transition hover:text-sky-500 dark:text-sky-300"
-          >
-            View all posts →
-          </Link>
-        </div>
-      </section>
-
+      {/* Call to Action Section */}
       <section className="mx-auto max-w-5xl px-4 sm:px-6">
         <MotionWrapper>
           <div className="rounded-3xl border border-sky-200/80 bg-white/90 p-8 text-center shadow-lg dark:border-sky-800/60 dark:bg-slate-950/70">

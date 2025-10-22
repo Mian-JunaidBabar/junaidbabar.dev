@@ -1,3 +1,5 @@
+import { Bot, Code, Rocket, type LucideIcon } from "lucide-react";
+
 export interface ServiceRoadmapStep {
   step: string;
   detail: string;
@@ -9,144 +11,110 @@ export interface Service {
   shortDesc: string;
   fullDesc: string;
   tags: string[];
+  icon: LucideIcon;
   roadmap: ServiceRoadmapStep[];
-  icon: string;
 }
 
-export const services = [
+export const services: Service[] = [
   {
-    slug: "web-development",
-    title: "Web Development",
+    slug: "custom-ai-applications",
+    title: "Custom AI-Powered Web Applications",
     shortDesc:
-      "Building fast, scalable web apps that feel great and perform even better.",
+      "Your vision, engineered from the ground up into a market-ready, intelligent product.",
     fullDesc:
-      "I design and develop full-stack web platforms using modern frameworks like Next.js and NestJS. My approach combines clean architecture, API-first design, and performance-driven deployment. Whether it’s a SaaS dashboard or a custom client portal, the goal is to build products that are beautiful, maintainable, and scalable.",
-    tags: ["Next.js", "NestJS", "React", "Node.js", "SQL", "Firebase"],
-    icon: "Code",
+      "I specialize in building complete, full-stack web applications that have artificial intelligence at their core. From initial strategy and architecture to deployment and scaling, I handle the entire product lifecycle to deliver a robust, scalable, and intelligent solution tailored to your business needs.",
+    tags: ["Full-Stack", "AI Integration", "Product Development", "SaaS"],
+    icon: Rocket,
     roadmap: [
       {
-        step: "Discovery",
-        detail: "Understand the product vision and target users.",
-      },
-      {
-        step: "Architecture",
-        detail: "Plan the stack and structure the backend & frontend flow.",
-      },
-      {
-        step: "Development",
+        step: "Phase 1: Discovery & Strategy",
         detail:
-          "Build fast, modular code with testing and scalability in mind.",
+          "We define the core problem, map out user flows, and establish the technical and business requirements for your product.",
       },
       {
-        step: "Launch & Optimize",
-        detail: "Deploy, monitor, and refine performance for real-world use.",
+        step: "Phase 2: Architecture & Design",
+        detail:
+          "I design a scalable system architecture for both the backend (Nest.js) and frontend (Next.js) and create initial wireframes for the user experience.",
+      },
+      {
+        step: "Phase 3: Agile Development & Integration",
+        detail:
+          "I build the application in agile sprints, integrating AI models and third-party services while providing regular demos and updates.",
+      },
+      {
+        step: "Phase 4: Deployment & Handoff",
+        detail:
+          "The application is deployed to a production environment on the cloud. I provide full documentation and a handoff session to your team.",
       },
     ],
   },
   {
-    slug: "ai-ml",
-    title: "AI & Machine Learning",
+    slug: "ai-model-integration",
+    title: "AI Model Integration & Deployment",
     shortDesc:
-      "Integrating AI models into real products that think, predict, and assist.",
+      "Infuse your existing applications with the power of machine learning and AI.",
     fullDesc:
-      "I build AI-powered apps that actually make sense in production — from using OpenAI or Gemini APIs to custom training CNNs for real use cases. I experiment with generative models, YOLO for detection, and lightweight ML systems embedded into web apps. Not just proof-of-concepts — deployable, functional intelligence.",
-    tags: ["Python", "TensorFlow", "PyTorch", "Gemini API", "LangChain"],
-    icon: "Brain",
+      "You have an existing platform or a trained AI model, but need to bridge the gap to production. I specialize in integrating and deploying machine learning models into real-world applications, building the necessary APIs and infrastructure to make them functional and scalable.",
+    tags: ["AI/ML", "Deployment", "API Development", "System Integration"],
+    icon: Bot,
     roadmap: [
       {
-        step: "Define Use Case",
-        detail: "Understand what problem the AI is solving.",
+        step: "Phase 1: Technical Audit",
+        detail:
+          "I review your existing application architecture and the AI model to determine the optimal integration strategy.",
       },
       {
-        step: "Data Prep",
-        detail: "Collect, clean, and prepare training datasets.",
+        step: "Phase 2: API & Service Development",
+        detail:
+          "I build a robust API endpoint (typically with Nest.js) to serve your model's predictions and handle data processing.",
       },
       {
-        step: "Modeling",
-        detail: "Train or integrate ML models (CNN, GAN, YOLO, etc.).",
+        step: "Phase 3: Frontend Integration",
+        detail:
+          "I connect your user interface to the new AI-powered API, ensuring a seamless and responsive user experience.",
       },
       {
-        step: "Integration",
-        detail: "Connect models via APIs or full-stack apps.",
+        step: "Phase 4: Production Deployment",
+        detail:
+          "The integrated service is deployed and monitored to ensure performance and reliability at scale.",
       },
     ],
   },
   {
-    slug: "automation-integrations",
-    title: "Automation & Integrations",
+    slug: "mvp-prototyping",
+    title: "MVP & Prototype Development",
     shortDesc:
-      "Streamlining systems through intelligent automation and API bridges.",
+      "Validate your startup idea with a functional, high-quality prototype, fast.",
     fullDesc:
-      "I design automation pipelines that connect tools, sync data, and reduce manual work. From backend integrations to task automation scripts, I use Node.js, Firebase, and cloud functions to build seamless systems that talk to each other — saving teams hours of repetitive effort.",
-    tags: ["APIs", "Node.js", "Firebase", "Zapier", "Automation"],
-    icon: "Zap",
-    roadmap: [
-      {
-        step: "Workflow Mapping",
-        detail: "Analyze current processes to find automation opportunities.",
-      },
-      {
-        step: "Integration Design",
-        detail: "Plan how services communicate via APIs or webhooks.",
-      },
-      {
-        step: "Automation Build",
-        detail: "Implement background jobs, triggers, and real-time sync.",
-      },
-      {
-        step: "Testing & Deploy",
-        detail: "Run QA and deploy workflows to production environments.",
-      },
+      "For founders and innovators, speed to market is critical. I specialize in rapid development of Minimum Viable Products (MVPs) and functional prototypes. My goal is to quickly transform your core idea into a tangible product that you can use to attract users, gather feedback, and secure investment.",
+    tags: [
+      "Startups",
+      "Prototyping",
+      "Next.js",
+      "Nest.js",
+      "Rapid Development",
     ],
-  },
-  {
-    slug: "cloud-infrastructure",
-    title: "Cloud & Infrastructure",
-    shortDesc: "Reliable cloud setups for scalable web and AI apps.",
-    fullDesc:
-      "I work with AWS and Azure to architect infrastructure that scales and stays online. From CI/CD pipelines to containerized deployments, my setups are clean, automated, and cost-efficient — making devops less painful and scaling frictionless.",
-    tags: ["AWS", "Azure", "Docker", "CI/CD", "Kubernetes"],
-    icon: "Cloud",
+    icon: Code,
     roadmap: [
       {
-        step: "Infra Planning",
-        detail: "Identify hosting, scaling, and security needs.",
+        step: "Phase 1: Core Feature Scoping",
+        detail:
+          "We work together to strip the idea down to its essential features, defining the smallest possible version that delivers real value.",
       },
       {
-        step: "Setup & Config",
-        detail: "Build containerized apps and automate CI/CD pipelines.",
+        step: "Phase 2: Rapid Development Sprints",
+        detail:
+          "Using a modern stack (Next.js, Nest.js, Supabase), I build the core functionality in a focused, high-speed sprint.",
       },
       {
-        step: "Deployment",
-        detail: "Launch to cloud with load balancing and monitoring.",
+        step: "Phase 3: User Feedback Loop",
+        detail:
+          "You receive a deployed, functional prototype that you can immediately put in front of users to start gathering crucial feedback.",
       },
       {
-        step: "Maintenance",
-        detail: "Keep uptime high and optimize cloud spend.",
-      },
-    ],
-  },
-  {
-    slug: "creative-design",
-    title: "Creative & Digital Design",
-    shortDesc:
-      "Blending visuals, brand identity, and marketing strategy into one digital story.",
-    fullDesc:
-      "I design brand kits, social campaigns, and marketing visuals that help startups and creators stand out. Using Illustrator, Photoshop, and Canva, I focus on storytelling through design — backed by data-driven strategy and clean execution.",
-    tags: ["Illustrator", "Photoshop", "Canva", "Meta Ads", "Branding"],
-    icon: "Palette",
-    roadmap: [
-      {
-        step: "Brand Strategy",
-        detail: "Understand audience and brand message.",
-      },
-      {
-        step: "Design Creation",
-        detail: "Build cohesive visuals across digital platforms.",
-      },
-      {
-        step: "Marketing Setup",
-        detail: "Run campaigns, track reach, and optimize.",
+        step: "Phase 4: Iteration & Handoff",
+        detail:
+          "Based on initial feedback, we can plan the next iteration or I can hand off the clean, well-documented codebase to your team.",
       },
     ],
   },

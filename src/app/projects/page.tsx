@@ -1,23 +1,47 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { projects, type Project } from "@/data/projects";
 import { SectionHeader } from "@/components/SectionHeader";
-import { MotionWrapper } from "@/components/MotionWrapper";
+import { motion } from "framer-motion";
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
 
 export default function ProjectsPage() {
   return (
     <div className="mx-auto max-w-6xl space-y-12 px-4 py-16 sm:px-6">
-      <SectionHeader
-        eyebrow="Projects"
-        title="A look at recent collaborations"
-        description="Each project pairs modern web engineering with pragmatic AI to solve real product needs."
-      />
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={cardVariants}
+        transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+      >
+        <SectionHeader
+          align="center"
+          eyebrow="Projects"
+          title="A look at recent collaborations"
+          description="Each project pairs modern web engineering with pragmatic AI to solve real product needs."
+        />
+      </motion.div>
 
       <div className="grid gap-8 md:grid-cols-2">
         {projects.map((project: Project, index: number) => (
-          <MotionWrapper
+          <motion.div
             key={project.slug}
-            delay={index * 0.05}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={cardVariants}
+            transition={{
+              duration: 0.5,
+              ease: [0.4, 0, 0.2, 1],
+              delay: index * 0.05,
+            }}
             className="group rounded-3xl border border-slate-200/70 bg-white/80 shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-950/70"
           >
             <Link
@@ -61,7 +85,7 @@ export default function ProjectsPage() {
                 </span>
               </div>
             </Link>
-          </MotionWrapper>
+          </motion.div>
         ))}
       </div>
     </div>

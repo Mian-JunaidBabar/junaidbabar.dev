@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { services } from "@/data/services";
-import { about } from "@/data/about";
 import { SectionHeader } from "@/components/SectionHeader";
 import { MotionWrapper } from "@/components/MotionWrapper";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -22,84 +22,101 @@ export default async function ServicePage({ params }: ServicePageProps) {
   }
 
   return (
-    <div className="mx-auto max-w-4xl space-y-10 px-4 py-16 sm:px-6">
-      <Link
-        href="/services"
-        className="text-sm font-semibold text-sky-600 transition hover:text-sky-500 dark:text-sky-300"
-      >
-        ← Back to services
-      </Link>
-
-      <SectionHeader
-        eyebrow="Service"
-        title={service.title}
-        description={service.fullDesc}
-      />
-
+    <div className="mx-auto max-w-6xl space-y-24 px-4 py-24 sm:px-6">
+      {/* 1. The Header */}
       <MotionWrapper>
-        <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/70">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">
-            What you can expect
-          </h3>
-          <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
-            {service.shortDesc}
-          </p>
-          <div className="mt-6 flex flex-wrap gap-2">
-            {service.tags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
-              >
-                {tag}
-              </span>
-            ))}
+        <div className="text-center">
+          <Link
+            href="/services"
+            className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-sky-600 transition hover:text-sky-500 dark:text-sky-300"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to All Services
+          </Link>
+          <SectionHeader
+            align="center"
+            eyebrow="Service Breakdown"
+            title={service.title}
+          />
+        </div>
+      </MotionWrapper>
+
+      {/* 2. Service Overview (Two-Column Layout) */}
+      <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-10">
+        <MotionWrapper className="lg:col-span-2">
+          <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/70">
+            <h2 className="text-xl font-semibold text-slate-800 dark:text-white">
+              Service Overview
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-300">
+              {service.fullDesc}
+            </p>
           </div>
-        </div>
-      </MotionWrapper>
+        </MotionWrapper>
 
-      <MotionWrapper>
-        <div className="space-y-6 rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/70">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">
-            Roadmap
-          </h3>
-          <ol className="space-y-4">
-            {service.roadmap.map((step, index) => (
-              <li key={step.step} className="flex gap-4">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-sky-200/80 bg-white text-sm font-semibold text-sky-600 shadow-sm dark:border-sky-800/60 dark:bg-slate-900/60 dark:text-sky-300">
-                  {index + 1}
+        <MotionWrapper delay={0.1}>
+          <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/70">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+              Ideal For
+            </h3>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {service.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
+                >
+                  {tag}
                 </span>
-                <div>
-                  <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
-                    {step.step}
-                  </p>
-                  <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
-                    {step.detail}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ol>
+              ))}
+            </div>
+          </div>
+        </MotionWrapper>
+      </div>
+
+      {/* 3. The Collaborative Roadmap */}
+      <MotionWrapper>
+        <SectionHeader
+          align="center"
+          eyebrow="The Process"
+          title="Our Collaborative Roadmap"
+          description="Every project is a partnership. My process is designed to be transparent, collaborative, and focused on delivering results at every stage."
+        />
+        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {service.roadmap.map((step, index) => (
+            <div
+              key={step.step}
+              className="rounded-2xl border border-slate-200/70 bg-white/80 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/70"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-sky-200/80 bg-white text-lg font-semibold text-sky-600 shadow-sm dark:border-sky-800/60 dark:bg-slate-900 dark:text-sky-300">
+                {index + 1}
+              </div>
+              <h3 className="mt-4 font-semibold text-slate-800 dark:text-slate-100">
+                {step.step}
+              </h3>
+              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                {step.detail}
+              </p>
+            </div>
+          ))}
         </div>
       </MotionWrapper>
 
+      {/* 4. The Final Call to Action */}
       <MotionWrapper>
-        <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 text-center shadow-sm dark:border-slate-800 dark:bg-slate-950/70">
-          <p className="text-sm text-slate-600 dark:text-slate-300">
-            Ready to start? Share your brief and I&apos;ll follow up within a
-            day with timelines and next steps.
+        <div className="mt-16 rounded-3xl border border-sky-200/80 bg-white/90 p-8 text-center shadow-lg dark:border-sky-800/60 dark:bg-slate-950/70">
+          <h2 className="text-2xl font-semibold sm:text-3xl">
+            Ready to build your vision?
+          </h2>
+          <p className="mt-4 text-slate-600 dark:text-slate-300">
+            Let's discuss how this service can be tailored to your project's
+            unique needs.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-4">
+          <div className="mt-8">
             <Link
               href="/contact"
-              className="rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-500/20 transition hover:bg-sky-500"
+              className="inline-flex items-center gap-2 rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-500/20 transition hover:bg-sky-500"
             >
-              Start a conversation
-            </Link>
-            <Link
-              href={`mailto:${about.contactEmail}`}
-              className="rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-sky-400 hover:text-sky-500 dark:border-slate-700 dark:text-slate-200"
-            >
-              Email details
+              Start a Conversation <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>

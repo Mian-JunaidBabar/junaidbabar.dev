@@ -6,9 +6,7 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useRef } from "react";
 
-// This is the component for the "growing" timeline line
 function TimelineLine({ scrollYProgress }: { scrollYProgress: any }) {
-  // Use useSpring for a smoother, more natural "springy" effect
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -23,7 +21,6 @@ function TimelineLine({ scrollYProgress }: { scrollYProgress: any }) {
   );
 }
 
-// Card animation variants for a clean fade-in-up effect
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0 },
@@ -53,7 +50,7 @@ export default function ExperiencePage() {
         />
       </motion.div>
 
-      {/* 2. The Timeline - Now with the scroll-linked line */}
+      {/* 2. The Timeline */}
       <div ref={timelineRef} className="relative mt-16">
         <TimelineLine scrollYProgress={scrollYProgress} />
 
@@ -64,12 +61,11 @@ export default function ExperiencePage() {
               key={`${role.company}-${role.role}`}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.5 }} // Trigger when 50% of the item is in view
+              viewport={{ once: true, amount: 0.5 }}
               variants={cardVariants}
               transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-              className="relative ml-6 pl-6" // Added pl-6 to give space from the line
+              className="relative ml-6 pl-6"
             >
-              {/* The dot is now part of the same animation block */}
               <div className="absolute -left-2.5 top-2 h-5 w-5 rounded-full border-2 border-white bg-sky-500 shadow-md shadow-sky-500/30 dark:border-slate-900" />
               <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/70">
                 <div className="flex flex-wrap items-center justify-between gap-3">
