@@ -7,7 +7,6 @@ interface CardProps {
   href?: string;
   ctaLabel?: string;
   tags?: string[];
-  // Allow slotting extra JSX such as footer content.
   footer?: ReactNode;
 }
 
