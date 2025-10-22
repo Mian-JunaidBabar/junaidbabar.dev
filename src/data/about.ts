@@ -9,7 +9,7 @@ export interface About {
   contactEmail: string;
   profileImage: string;
   toolkit: string[];
-  socialLinks: { linkedin?: string; github?: string };
+  socialLinks: { linkedin?: string; github?: string; whatsapp?: string };
   resumeUrl?: string;
 }
 
@@ -24,6 +24,7 @@ export const about: About = {
   socialLinks: {
     linkedin: "https://www.linkedin.com/in/mian-junaidbabar/",
     github: "https://github.com/mian-junaidbabar",
+    whatsapp: "+923374990542",
   },
 
   heroSummary:

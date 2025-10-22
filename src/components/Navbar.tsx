@@ -9,11 +9,11 @@ import { about } from "@/data/about";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
+  { href: "/projects", label: "Projects" },
+  { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
   { href: "/experience", label: "Experience" },
   { href: "/education", label: "Education" },
-  { href: "/projects", label: "Projects" },
-  { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact" },
 ];
 
